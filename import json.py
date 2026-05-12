@@ -44,7 +44,7 @@ def play_game(game_data, start_location="0"):
 current_location = start_location
 step_count = 0
 
-print("Ваша задача - найти сокровище и не проснуться!")
+print("Ваша задача - найти сокровище и не проиграть!")
 
 while current_location in game_data:
     step_count += 1
@@ -57,18 +57,6 @@ while current_location in game_data:
         print(f"\n{game_data[current_location]['text']}")
         
         if "сокровище" in game_data[current_location]['name'].lower():
-            print("\n ПОЗДРАВЛЯЕМ! ВЫ ВЫИГРАЛИ! ")
+            print("\n поздравляем с победой ")
         else:
-            print("\n Игра окончена. Вы проснулись!")
-        
-        print(f"\nКоличество сделанных шагов: {step_count}")
-        break
-    
-    choice_index = get_player_choice(len(next_locations), game_data, current_location)
-    
-    if choice_index is None:
-        break
-    
-    current_location = str(next_locations[choice_index])
-def main():
-     game_data = load_game_data('game_graph.json')
+            print("\n Игра окончена.")
